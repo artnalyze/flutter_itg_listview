@@ -8,7 +8,6 @@ class DynamicListPage extends StatefulWidget {
 }
 
 class _DynamicListPageState extends State<DynamicListPage> {
-
   final items = List<String>.generate(100, (index) => "items $index");
 
   @override
@@ -23,15 +22,15 @@ class _DynamicListPageState extends State<DynamicListPage> {
             )
           ],
         ),
-        body: ListView.builder(
-          itemCount: items.length,
-          itemBuilder: (context, index) {
-            return ListTile(
-              title: Text("${items[index]}"),
-              onTap: () {},
-            );
-          } 
-        )
-    );
+        body: Card(
+          child: ListView.builder(
+              itemCount: items.length,
+              itemBuilder: (context, index) {
+                return ListTile(
+                  title: Text("${items[index]}"),
+                  onTap: () {},
+                );
+              }),
+        ));
   }
 }
